@@ -1,14 +1,20 @@
 import express from "express";
+import 'dotenv/config';
+import connectToDatabase from "./funtions/core/connectToDatabase"
+
+
+
 
 const PORT = process.env.PORT || 3001
 
+// connect to DB
+
+connectToDatabase();
+
 const app = express();
 
-app.get("/api", (req, res)=> {
-    res.json({message: "Server Working; Hello MotherFucker"})
-})
+app.use
 app.listen(PORT, () => {
-
     console.log(`${new Date().toString()}
     Server listening on port ${PORT}`);
 })
