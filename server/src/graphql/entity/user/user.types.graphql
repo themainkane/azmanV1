@@ -1,12 +1,19 @@
-type User{
-    id: ID!
-    name: String!
-    email: String!
-    age: Int
-    }
-        
-type Query {
-    users: [User!]! #returns an array of all users
-    user(id: ID!): User #returns a single user based on their ID
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  age: Int
 }
-;
+
+type Query {
+  users: [User!]! #returns an array of all users
+  user(id: ID!): User #returns a single user based on their ID
+}
+
+type Mutation {
+  createUser(name: String!, email: String!, age: Int): User!
+
+  updateUser(id: ID!, name: String!, email: String!, age: Int): User!
+
+  deleteUser(id: ID!): User!
+}
